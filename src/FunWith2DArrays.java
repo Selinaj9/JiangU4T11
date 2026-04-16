@@ -74,4 +74,20 @@ public class FunWith2DArrays {
         }
         return invert;
     }
+
+    public static int sumForRow(int[][] arr, int row) {
+        int sum = 0;
+        for (int c = 0; c < arr[0].length; c++) {
+            sum += arr[row][c];
+        }
+        return sum;
+    }
+
+    public static int sumForColumn(int[][] arr, int col) {
+        int sum = 0;
+        for (int r = 0; r < arr.length; r++) {
+            sum += arr[r][col];
+        }
+        return sum;
+    }
 }

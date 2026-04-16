@@ -732,5 +732,53 @@ public class FunWith2DArraysTester {
         } else {
             System.out.println("!!!!!!! TEST 4 FAILS !!!!!!!");
         }
+
+        int[][] testArr = {{1, 2, 3, 4, 5}, {6, 7, 8, 9, 10}, {4, 6, 8, 3, 5}};
+        int t001 = FunWith2DArrays.sumForRow(testArr, 0);
+        System.out.println(t001);
+        int t002 = FunWith2DArrays.sumForRow(testArr, 1);
+        System.out.println(t002);
+        int t003 = FunWith2DArrays.sumForRow(testArr, 2);
+        System.out.println(t003);
+        int[][] testArr002 = {{3, 4, 5}, {8, 9, 10}, {8, 3, 5}, {1, 2, 3}};
+        int t004 = FunWith2DArrays.sumForRow(testArr002, 0);
+        System.out.println(t004);
+        int t005 = FunWith2DArrays.sumForRow(testArr002, 1);
+        System.out.println(t005);
+        int t006 = FunWith2DArrays.sumForRow(testArr002, 2);
+        System.out.println(t006);
+        int t007 = FunWith2DArrays.sumForRow(testArr002, 3);
+        System.out.println(t007);
+        if (t001 == 15 && t002 == 40 && t003 == 26 &&
+                t004 == 12 && t005 == 27 && t006 == 16 && t007 == 6) {
+            System.out.println("TEST PASSES");
+        } else {
+            System.out.println("!!!!!!! TEST FAILS !!!!!!!");
+        }
+
+        int[][] testArr0 = {{1, 2, 3, 4, 5}, {6, 7, 8, 9, 10}, {4, 6, 8, 3, 5}};
+        int t0001 = FunWith2DArrays.sumForColumn(testArr0, 0);
+        System.out.println(t0001);
+        int t0002 = FunWith2DArrays.sumForColumn(testArr0, 1);
+        System.out.println(t0002);
+        int t0003 = FunWith2DArrays.sumForColumn(testArr0, 2);
+        System.out.println(t0003);
+        int t0004 = FunWith2DArrays.sumForColumn(testArr0, 3);
+        System.out.println(t0004);
+        int t0005 = FunWith2DArrays.sumForColumn(testArr0, 4);
+        System.out.println(t0005);
+        int[][] testArr00002 = {{3, 4, 5}, {8, 9, 10}, {8, 3, 5}, {1, 2, 3}};
+        int t0006 = FunWith2DArrays.sumForColumn(testArr00002, 0);
+        System.out.println(t0006);
+        int t0007 = FunWith2DArrays.sumForColumn(testArr00002, 1);
+        System.out.println(t0007);
+        int t0008 = FunWith2DArrays.sumForColumn(testArr00002, 2);
+        System.out.println(t0008);
+        if (t0001 == 11 && t0002 == 15 && t0003 == 19 && t0004 == 16 &&
+                t0005 == 20 && t0006 == 20 && t0007 == 18 && t0008 == 23) {
+            System.out.println("TEST PASSES");
+        } else {
+            System.out.println("!!!!!!! TEST FAILS !!!!!!!");
+        }
     }
 }

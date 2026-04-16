@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class FunWith2DArrays {
 
     public static int totalElements(int[][] arr) {
@@ -45,15 +48,15 @@ public class FunWith2DArrays {
         for (int c = 0; c < words[0].length; c++) {
             for (int r = 0; r < words.length; r++) {
                 if (words[r][c].equals(target)) {
-                    return new int[] {r, c};
+                    return new int[]{r, c};
                 }
             }
         }
-        return new int[] {-1,-1};
+        return new int[]{-1, -1};
     }
 
     public static int[][] split(int[][] arr, int row, int col) {
-        int[][] nums = new int[row + 1][ col + 1];
+        int[][] nums = new int[row + 1][col + 1];
         if (row > arr.length - 1 || col > arr[0].length - 1) {
             return new int[0][0];
         }
@@ -89,5 +92,51 @@ public class FunWith2DArrays {
             sum += arr[r][col];
         }
         return sum;
+    }
+
+    public static int replaceEvensWithZero(int[][] arr) {
+        int count = 0;
+        for (int r = 0; r < arr.length; r++) {
+            for (int c = 0; c < arr[0].length; c++) {
+                if (arr[r][c] % 2 == 0) {
+                    arr[r][c] = 0;
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    public static ArrayList<String> findStringsOfLength(String[][] wordChart, int len) {
+        ArrayList<String> words = new ArrayList<>();
+        for (String[] row : wordChart) {
+            for (String word : row) {
+                if (word.length() == len) {
+                    words.add(word);
+                }
+            }
+        }
+        return words;
+    }
+
+    public static double classAverage(Student[][] seatingChart) {
+        int sum = 0;
+        for (Student[] students : seatingChart) {
+            for (Student student : students) {
+                sum += student.getGrade();
+            }
+        }
+        return (double) sum / (seatingChart.length * seatingChart[0].length);
+    }
+
+    public static boolean consecutive(int[][] arr) {
+        for (int r = 0; r < arr.length; r++) {
+            for (int c = 0; c < arr[0].length; c++) {
+                if (r < arr.length - 1 && arr[r][c] == arr[r + 1][c] || c < arr[0].length - 1 && arr[r][c] == arr[r][c + 1]) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.ArrayList;
 
 public class FunWith2DArraysTester {
     public static void main(String[] args) {
@@ -779,6 +780,245 @@ public class FunWith2DArraysTester {
             System.out.println("TEST PASSES");
         } else {
             System.out.println("!!!!!!! TEST FAILS !!!!!!!");
+        }
+
+        System.out.println("----TEST 1----");
+        int[][] testArr00 = {{1, 2, 3, 4, 5}, {6, 7, 8, 9, 10}, {4, 6, 8, 3, 5}};
+        int changes = FunWith2DArrays.replaceEvensWithZero(testArr00);
+        System.out.println("Number of changes: " + changes);
+        System.out.println("2D Array modified:");
+        for (int[] row : testArr00) {
+            for (int val : row) {
+                System.out.print(val + " ");
+            }
+            System.out.println();
+        }
+        int[][] exp11 = {{1, 0, 3, 0, 5}, {0, 7, 0, 9, 0}, {0, 0, 0, 3, 5}};
+        boolean t1bool = true;
+        for (int r = 0; r < testArr00.length; r++) {
+            for (int c = 0; c < testArr00[0].length; c++) {
+                if (testArr00[r][c] != exp11[r][c]) {
+                    t1bool = false;
+                }
+            }
+        }
+        if (t1bool && changes == 8) {
+            System.out.println("TEST 1 PASSES");
+        } else {
+            System.out.println("!!!!!!! TEST 1 FAILS !!!!!!!");
+        }
+
+        System.out.println("\n----TEST 2----");
+        int[][] testArr12 = {{2, 2, 4, 4}, {6, 8, 8, 10}, {4, 6, 8, 2}, {4, 2, 4, 6}};
+        changes = FunWith2DArrays.replaceEvensWithZero(testArr12);
+        System.out.println("Number of changes: " + changes);
+        System.out.println("2D Array modified:");
+        for (int[] row : testArr12) {
+            for (int val : row) {
+                System.out.print(val + " ");
+            }
+            System.out.println();
+        }
+        int[][] exp12 = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+        boolean t2bool = true;
+        for (int r = 0; r < testArr12.length; r++) {
+            for (int c = 0; c < testArr12[0].length; c++) {
+                if (testArr12[r][c] != exp12[r][c]) {
+                    t2bool = false;
+                }
+            }
+        }
+        if (t2bool && changes == 16) {
+            System.out.println("TEST 2 PASSES");
+        } else {
+            System.out.println("!!!!!!! TEST 2 FAILS !!!!!!!");
+        }
+
+        System.out.println("\n----TEST 3----");
+        int[][] testArr13 = {{1, 3, 5}, {7, 5, 9}};
+        changes = FunWith2DArrays.replaceEvensWithZero(testArr13);
+        System.out.println("Number of changes: " + changes);
+        System.out.println("2D Array not modified:");
+        for (int[] row : testArr13) {
+            for (int val : row) {
+                System.out.print(val + " ");
+            }
+            System.out.println();
+        }
+        int[][] exp13 = {{1, 3, 5}, {7, 5, 9}};
+        boolean t3bool = true;
+        for (int r = 0; r < testArr13.length; r++) {
+            for (int c = 0; c < testArr13[0].length; c++) {
+                if (testArr13[r][c] != exp13[r][c]) {
+                    t3bool = false;
+                }
+            }
+        }
+        if (t3bool && changes == 0) {
+            System.out.println("TEST 3 PASSES");
+        } else {
+            System.out.println("!!!!!!! TEST 3 FAILS !!!!!!!");
+        }
+
+        String[][] words00 = {{"hi", "bye", "stuff", "goo"}, {"time", "up", "you", "map"}, {"good", "low", "bow", "mom"}};
+        ArrayList<String> returnedList = FunWith2DArrays.findStringsOfLength(words00, 3);
+        System.out.println(returnedList);
+        if (returnedList.size() == 7 && returnedList.get(0).equals("bye") && returnedList.get(1).equals("goo")
+                && returnedList.get(2).equals("you") && returnedList.get(3).equals("map")
+                && returnedList.get(4).equals("low") && returnedList.get(5).equals("bow")
+                && returnedList.get(6).equals("mom")) {
+            System.out.println("TEST 1 PASSES\n");
+        } else {
+            System.out.println("!!!!!!! TEST 1 FAILS !!!!!!!\n");
+        }
+        ArrayList<String> returnedList2 = FunWith2DArrays.findStringsOfLength(words00, 4);
+        System.out.println(returnedList2);
+        if (returnedList2.size() == 2 && returnedList2.get(0).equals("time") && returnedList2.get(1).equals("good")) {
+            System.out.println("TEST 2 PASSES\n");
+        } else {
+            System.out.println("!!!!!!! TEST 2 FAILS !!!!!!!\n");
+        }
+        ArrayList<String> returnedList3 = FunWith2DArrays.findStringsOfLength(words00, 5);
+        System.out.println(returnedList3);
+        if (returnedList3.size() == 1 && returnedList3.get(0).equals("stuff")) {
+            System.out.println("TEST 3 PASSES\n");
+        } else {
+            System.out.println("!!!!!!! TEST 3 FAILS !!!!!!!\n");
+        }
+        ArrayList<String> returnedList4 = FunWith2DArrays.findStringsOfLength(words00, 6);
+        System.out.println(returnedList4);
+        if (returnedList4.size() == 0) {
+            System.out.println("TEST 4 PASSES\n");
+        } else {
+            System.out.println("!!!!!!! TEST 4 FAILS !!!!!!!\n");
+        }
+        String[][] words002 = {{"a", "b", "c"}, {"d", "e", "f"}, {"g", "h", "i"}, {"j", "k", "l"}};
+        returnedList = FunWith2DArrays.findStringsOfLength(words002, 1);
+        System.out.println(returnedList);
+        if (returnedList.size() == 12 && returnedList.get(0).equals("a") && returnedList.get(1).equals("b")
+                && returnedList.get(2).equals("c") && returnedList.get(3).equals("d")
+                && returnedList.get(4).equals("e") && returnedList.get(5).equals("f")
+                && returnedList.get(6).equals("g") && returnedList.get(7).equals("h")
+                && returnedList.get(8).equals("i") && returnedList.get(9).equals("j")
+                && returnedList.get(10).equals("k") && returnedList.get(11).equals("l")) {
+            System.out.println("TEST 5 PASSES\n");
+        } else {
+            System.out.println("!!!!!!! TEST 5 FAILS !!!!!!!\n");
+        }
+        returnedList2 = FunWith2DArrays.findStringsOfLength(words002, 2);
+        System.out.println(returnedList2);
+        if (returnedList2.size() == 0) {
+            System.out.println("TEST 6 PASSES\n");
+        } else {
+            System.out.println("!!!!!!! TEST 6 FAILS !!!!!!!\n");
+        }
+
+        Student student1 = new Student("Abby", 95);
+        Student student2 = new Student("Barb", 98);
+        Student student3 = new Student("Cole", 91);
+        Student student4 = new Student("Dave", 92);
+        Student student5 = new Student("Ellie", 98);
+        Student student6 = new Student("Frank", 87);
+        Student student7 = new Student("George", 93);
+        Student student8 = new Student("Jim", 92);
+        Student student9 = new Student("Kara", 95);
+        Student student10 = new Student("Lenny", 98);
+        Student student11 = new Student("Mona", 100);
+        Student student12 = new Student("Nancy", 99);
+        Student[][] chart = {{student1, student2, student3}, {student4, student5, student6}, {student7, student8, student9}, {student10, student11, student12}};
+        double avg = FunWith2DArrays.classAverage(chart);
+        System.out.println(avg);
+        Student[][] chart2 = {{student1, student2}, {student4, student5}, {student8, student9}};
+        double avg2 = FunWith2DArrays.classAverage(chart2);
+        System.out.println(avg2);
+        Student[][] chart3 = {{student6}};
+        double avg3 = FunWith2DArrays.classAverage(chart3);
+        System.out.println(avg3);
+        if (avg > 94.833 && avg < 94.834 && avg2 > 94.999 && avg2 < 95.001 && avg3 > 86.999 && avg3 < 87.001) {
+            System.out.println("TEST PASSES");
+        } else {
+            System.out.println("!!!!!!! TEST FAILS !!!!!!!");
+        }
+
+        int[][] testArr001 = { // true
+                {1, 2, 3, 4},
+                {1, 3, 4, 5},
+                {3, 4, 5, 6}
+        };
+        int[][] testArr0002 = { // true
+                {1, 2, 3, 4},
+                {2, 3, 4, 6},
+                {3, 4, 5, 6}
+        };
+        int[][] testArr003 = { // true
+                {7, 7, 3, 4},
+                {2, 3, 4, 5},
+                {3, 4, 5, 6}
+        };
+        int[][] testArr004 = { // true
+                {1, 2, 3, 4},
+                {2, 3, 4, 5},
+                {3, 4, 2, 2}
+        };
+        int[][] testArr005 = { // true
+                {1, 2, 3, 4, 5},
+                {2, 3, 9, 5, 6},
+                {3, 4, 9, 6, 7},
+                {4, 5, 6, 7, 8}
+        };
+        int[][] testArr006 = { // true
+                {1, 2, 3, 4, 5},
+                {2, 3, 4, 5, 6},
+                {3, 4, 1, 1, 7},
+                {4, 5, 6, 7, 8}
+        };
+        int[][] testArr007 = { // true
+                {1, 2, 3, 4, 5},
+                {2, 3, 4, 5, 6},
+                {3, 4, 5, 6, 8},
+                {4, 5, 6, 7, 8}
+        };
+        int[][] testArr008 = { // true
+                {1, 2, 3, 4, 5},
+                {2, 3, 4, 5, 6},
+                {3, 4, 5, 6, 7},
+                {4, 5, 6, 8, 8}
+        };
+        int[][] testArr009 = { // false
+                {1, 2, 3, 4},
+                {2, 3, 4, 5},
+                {3, 4, 5, 6}
+        };
+        int[][] testArr010 = { // false
+                {1, 2, 3, 4, 5},
+                {2, 3, 4, 5, 6},
+                {3, 4, 5, 6, 7},
+                {4, 5, 6, 7, 8}
+        };
+        boolean test01 = FunWith2DArrays.consecutive(testArr001);
+        System.out.println(test01);
+        boolean test02 = FunWith2DArrays.consecutive(testArr0002);
+        System.out.println(test02);
+        boolean test03 = FunWith2DArrays.consecutive(testArr003);
+        System.out.println(test03);
+        boolean test04 = FunWith2DArrays.consecutive(testArr004);
+        System.out.println(test04);
+        boolean test05 = FunWith2DArrays.consecutive(testArr005);
+        System.out.println(test05);
+        boolean test06 = FunWith2DArrays.consecutive(testArr006);
+        System.out.println(test06);
+        boolean test07 = FunWith2DArrays.consecutive(testArr007);
+        System.out.println(test07);
+        boolean test08 = FunWith2DArrays.consecutive(testArr008);
+        System.out.println(test08);
+        boolean test09 = FunWith2DArrays.consecutive(testArr009);
+        System.out.println(test09);
+        boolean test10 = FunWith2DArrays.consecutive(testArr010);
+        System.out.println(test10);
+        if (test01 && test02 && test03 && test04 && test05 && test06 && test07 && test08 && !test09 && !test10) {
+            System.out.println("\n--- ALL TESTS PASS! ---");
+        } else {
+            System.out.println("\n!!!!!! TEST FAIL!!!!!!!");
         }
     }
 }

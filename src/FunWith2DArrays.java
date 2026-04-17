@@ -1,5 +1,6 @@
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class FunWith2DArrays {
 
@@ -138,5 +139,54 @@ public class FunWith2DArrays {
             }
         }
         return false;
+    }
+
+    public static boolean magicSquare(int[][] arr) {
+        int sum = 0;
+        for (int c = 0; c < arr.length; c++) {
+            sum += arr[0][c];
+        }
+        Set<Integer> seen = new HashSet<>();
+        for (int r = 0; r < arr.length; r++) {
+            for (int c = 0; c < arr[0].length; c++) {
+                if (!seen.add(arr[r][c])) {
+                    return false;
+                }
+            }
+        }
+
+        int diag = 0;
+        int altDiag = 0;
+        for (int r = 0; r < arr.length; r++) {
+            int hor = 0;
+            for (int c = 0; c < arr[0].length; c++) {
+                hor += arr[r][c];
+                if (r == c) {
+                    diag += arr[r][c];
+                }
+                if (r + c == arr.length - 1) {
+                    altDiag += arr[r][c];
+                }
+            }
+
+            if (hor != sum) {
+                return false;
+            }
+        }
+
+        if (diag != sum || altDiag != sum) {
+            return false;
+        }
+
+        for (int c = 0; c < arr[0].length; c++) {
+            int ver = 0;
+            for (int r = 0; r < arr.length; r++) {
+                ver += arr[r][c];
+            }
+            if (ver != sum) {
+                return false;
+            }
+        }
+        return true;
     }
 }
